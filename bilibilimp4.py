@@ -1,5 +1,5 @@
 import os,subprocess,shutil
-#以上是库
+#以上是需要的库
 path=input('请输入文件夹路径')
 #path=C:\Users\20323\Videos\bilibili\40283868883
 print(f'目录文件:{os.listdir(path)}\n开始查找视音频\n')
