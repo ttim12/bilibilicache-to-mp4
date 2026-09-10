@@ -1,0 +1,3 @@
+# 运行依赖 (Runtime dependencies)
+# imageio-ffmpeg: 自动下载并提供 ffmpeg 可执行文件，免去用户手动配置环境变量
+imageio-ffmpeg>=0.4.9
