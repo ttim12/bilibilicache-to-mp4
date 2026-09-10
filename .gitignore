@@ -1,2 +1,5 @@
 .idea/
 __pycache__/
+*.mp4
+*.m4s
+*temp.m4s
