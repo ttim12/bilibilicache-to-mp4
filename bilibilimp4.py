@@ -1,7 +1,7 @@
 import os,subprocess,shutil
 
-path=input('请输入文件夹路径')
-#path=C:\Users\20323\Videos\bilibili\40283868883
+path=input('请输入缓存视频文件夹路径')
+
 print(f'目录文件:{os.listdir(path)}\n开始查找视音频\n')
 m4s = [f for f in os.listdir(path) if f.endswith('.m4s')]
 audio = [i for i in m4s if '30280' in i]
@@ -12,7 +12,8 @@ audio_temp = os.path.join(path, 'audio_temp.m4s')
 video_temp = os.path.join(path, 'video_temp.m4s')
 shutil.copy(os.path.join(path,audio[0]), audio_temp)
 shutil.copy(os.path.join(path,video[0]), video_temp)
-#audio_temp和video_temp已经是路径了
+
+#audio_temp和video_temp已经是路径.
 
 for i in(audio_temp,video_temp):          #删开头9个0
     with open(i,'rb') as f:
@@ -27,6 +28,7 @@ for i in(audio_temp,video_temp):          #删开头9个0
         f.write(data)
 
 #检测使用系统的还是工具的ffmpeg
+
 try:
     import imageio_ffmpeg
     ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
@@ -37,4 +39,6 @@ subprocess.run([ffmpeg,'-v','error','-i',video_temp,'-i',audio_temp,'-c','copy',
 
 os.remove(video_temp);os.remove(audio_temp)
 print('结束')
+
+
 #ffmpeg -i xxxxx30120.m4s -i xxxxxx.30280.m4s -c:v copy -c:a copy 自己命名.mp4
